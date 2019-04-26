@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
 
@@ -12,7 +13,6 @@ public class Main {
 		
 		//total number of cube faces
 		int n = 180;
-		
 		
 		ArrayList<Cube> cubesList1 = new ArrayList<Cube>();
 		//puzzle generator populates a list of cubes with colors
@@ -30,10 +30,17 @@ public class Main {
 		//puzzle generator populates a list of cubes with colors
 		puzzleGenerator(equation4, n, cubesList4);
 		
+		//sort cubes list
+		//sortCubesList(cubesList1);
 		
 		//returns a string of cube list color assignments. used for testing purposes.
-		String listAssignments = cubesListToString(cubesList1);
-		System.out.println(listAssignments);
+		//String listAssignments = cubesListToString(cubesList2);
+		//System.out.println(listAssignments);
+		
+		ListOfOccurrences occurrences = new ListOfOccurrences();
+		occurrences.setOccurrences(cubesList2);
+		
+		System.out.println(occurrences.toString());
 		
 	}
 	
@@ -49,6 +56,10 @@ public class Main {
 			Cube cubey = new Cube(generatedColors);
 			cubesList.add(cubey);
 		}
+	}
+	
+	public static void sortCubesList(ArrayList<Cube> cubesList) {
+		Collections.sort(cubesList);
 	}
 	
 	//testing function outputs all colors from a list of cubes.
